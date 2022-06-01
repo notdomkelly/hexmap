@@ -1,0 +1,444 @@
+[gd_scene load_steps=111 format=2]
+
+[ext_resource path="res://tiles/hexset_grid_wshallow_mont_02.png" type="Texture" id=1]
+[ext_resource path="res://tiles/hexset_grid_wdeep_flat_03.png" type="Texture" id=2]
+[ext_resource path="res://tiles/hexset_grid_wdeep_O_flat_01.png" type="Texture" id=3]
+[ext_resource path="res://tiles/hexset_grid_wdeep_O_flat_03.png" type="Texture" id=4]
+[ext_resource path="res://tiles/hexset_grid_wshallow_flat_01.png" type="Texture" id=5]
+[ext_resource path="res://tiles/hexset_grid_warm_O_flat_01.png" type="Texture" id=6]
+[ext_resource path="res://tiles/hexset_grid_wdeep_flat_01.png" type="Texture" id=7]
+[ext_resource path="res://tiles/hexset_grid_wshallow_flat_02.png" type="Texture" id=8]
+[ext_resource path="res://tiles/hexset_grid_wshallow_hill_01.png" type="Texture" id=9]
+[ext_resource path="res://tiles/hexset_grid_wshallow_hill_02.png" type="Texture" id=10]
+[ext_resource path="res://tiles/hexset_grid_wshallow_mont_01.png" type="Texture" id=11]
+[ext_resource path="res://tiles/hexset_grid_wdeep_flat_02.png" type="Texture" id=12]
+[ext_resource path="res://tiles/hexset_grid_wshallow_O_flat_02.png" type="Texture" id=13]
+[ext_resource path="res://tiles/hexset_grid_warm_O_flat_02.png" type="Texture" id=14]
+[ext_resource path="res://tiles/hexset_grid_warm_mont_03.png" type="Texture" id=15]
+[ext_resource path="res://tiles/hexset_grid_wdeep_hill_03.png" type="Texture" id=16]
+[ext_resource path="res://tiles/hexset_grid_wdeep_mont_02.png" type="Texture" id=17]
+[ext_resource path="res://tiles/hexset_grid_wdeep_mont_03.png" type="Texture" id=18]
+[ext_resource path="res://tiles/hexset_grid_wdeep_hill_02.png" type="Texture" id=19]
+[ext_resource path="res://tiles/hexset_grid_warm_mont_02.png" type="Texture" id=20]
+[ext_resource path="res://tiles/hexset_grid_warm_O_flat_03.png" type="Texture" id=21]
+[ext_resource path="res://tiles/hexset_grid_wdeep_hill_01.png" type="Texture" id=22]
+[ext_resource path="res://tiles/hexset_grid_wdeep_O_flat_02.png" type="Texture" id=23]
+[ext_resource path="res://tiles/hexset_grid_wshallow_flat_03.png" type="Texture" id=24]
+[ext_resource path="res://tiles/hexset_grid_wshallow_hill_03.png" type="Texture" id=25]
+[ext_resource path="res://tiles/hexset_grid_wshallow_mont_03.png" type="Texture" id=26]
+[ext_resource path="res://tiles/hexset_grid_wshallow_O_flat_01.png" type="Texture" id=27]
+[ext_resource path="res://tiles/hexset_grid_wdeep_mont_01.png" type="Texture" id=28]
+[ext_resource path="res://tiles/hexset_grid_desert_O_flat_03.png" type="Texture" id=29]
+[ext_resource path="res://tiles/hexset_grid_snow_flat_01.png" type="Texture" id=30]
+[ext_resource path="res://tiles/hexset_grid_snow_flat_03.png" type="Texture" id=31]
+[ext_resource path="res://tiles/hexset_grid_boreal_mont_02.png" type="Texture" id=32]
+[ext_resource path="res://tiles/hexset_grid_boreal_flat_01.png" type="Texture" id=33]
+[ext_resource path="res://tiles/hexset_grid_boreal_O_flat_01.png" type="Texture" id=34]
+[ext_resource path="res://tiles/hexset_grid_desert_flat_01.png" type="Texture" id=35]
+[ext_resource path="res://tiles/hexset_grid_desert_O_flat_01.png" type="Texture" id=36]
+[ext_resource path="res://tiles/hexset_grid_boreal_hill_02.png" type="Texture" id=37]
+[ext_resource path="res://tiles/hexset_grid_boreal_O_flat_03.png" type="Texture" id=38]
+[ext_resource path="res://tiles/hexset_grid_desert_hill_01.png" type="Texture" id=39]
+[ext_resource path="res://tiles/hexset_grid_desert_mont_02.png" type="Texture" id=40]
+[ext_resource path="res://tiles/hexset_grid_desert_O_flat_02.png" type="Texture" id=41]
+[ext_resource path="res://tiles/hexset_grid_snow_flat_02.png" type="Texture" id=42]
+[ext_resource path="res://tiles/hexset_grid_snow_hill_01.png" type="Texture" id=43]
+[ext_resource path="res://tiles/hexset_grid_snow_hill_02.png" type="Texture" id=44]
+[ext_resource path="res://tiles/hexset_grid_snow_hill_03.png" type="Texture" id=45]
+[ext_resource path="res://tiles/hexset_grid_snow_mont_01.png" type="Texture" id=46]
+[ext_resource path="res://tiles/hexset_grid_boreal_O_flat_02.png" type="Texture" id=47]
+[ext_resource path="res://tiles/hexset_grid_desert_flat_02.png" type="Texture" id=48]
+[ext_resource path="res://tiles/hexset_grid_desert_hill_02.png" type="Texture" id=49]
+[ext_resource path="res://tiles/hexset_grid_desert_mont_01.png" type="Texture" id=50]
+[ext_resource path="res://tiles/hexset_grid_boreal_mont_01.png" type="Texture" id=51]
+[ext_resource path="res://tiles/hexset_grid_boreal_hill_03.png" type="Texture" id=52]
+[ext_resource path="res://tiles/hexset_grid_snow_mont_02.png" type="Texture" id=53]
+[ext_resource path="res://tiles/hexset_grid_snow_mont_03.png" type="Texture" id=54]
+[ext_resource path="res://tiles/hexset_grid_boreal_flat_03.png" type="Texture" id=55]
+[ext_resource path="res://tiles/hexset_grid_boreal_mont_03.png" type="Texture" id=56]
+[ext_resource path="res://tiles/hexset_grid_desert_hill_03.png" type="Texture" id=57]
+[ext_resource path="res://tiles/hexset_grid_wshallow_O_flat_03.png" type="Texture" id=58]
+[ext_resource path="res://tiles/hexset_grid_boreal_hill_01.png" type="Texture" id=59]
+[ext_resource path="res://tiles/hexset_grid_desert_mont_03.png" type="Texture" id=60]
+[ext_resource path="res://tiles/hexset_grid_boreal_flat_02.png" type="Texture" id=61]
+[ext_resource path="res://tiles/hexset_grid_desert_flat_03.png" type="Texture" id=62]
+[ext_resource path="res://tiles/hexset_grid_warm_flat_01.png" type="Texture" id=63]
+[ext_resource path="res://tiles/hexset_grid_swamp_mont_01.png" type="Texture" id=64]
+[ext_resource path="res://tiles/hexset_grid_warm_flat_03.png" type="Texture" id=65]
+[ext_resource path="res://tiles/hexset_grid_warm_hill_01.png" type="Texture" id=66]
+[ext_resource path="res://tiles/hexset_grid_warm_hill_02.png" type="Texture" id=67]
+[ext_resource path="res://tiles/hexset_grid_swamp_flat_01.png" type="Texture" id=68]
+[ext_resource path="res://tiles/hexset_grid_warm_mont_01.png" type="Texture" id=69]
+[ext_resource path="res://tiles/hexset_grid_stone_O_flat_02.png" type="Texture" id=70]
+[ext_resource path="res://tiles/hexset_grid_temperate_flat_03.png" type="Texture" id=71]
+[ext_resource path="res://tiles/hexset_grid_swamp_mont_02.png" type="Texture" id=72]
+[ext_resource path="res://tiles/hexset_grid_swamp_flat_02.png" type="Texture" id=73]
+[ext_resource path="res://tiles/hexset_grid_temperate_O_flat_01.png" type="Texture" id=74]
+[ext_resource path="res://tiles/hexset_grid_warm_flat_02.png" type="Texture" id=75]
+[ext_resource path="res://tiles/hexset_grid_warm_hill_03.png" type="Texture" id=76]
+[ext_resource path="res://tiles/hexset_grid_swamp_flat_03.png" type="Texture" id=77]
+[ext_resource path="res://tiles/hexset_grid_temperate_flat_01.png" type="Texture" id=78]
+[ext_resource path="res://tiles/hexset_grid_temperate_hill_01.png" type="Texture" id=79]
+[ext_resource path="res://tiles/hexset_grid_swamp_mont_03.png" type="Texture" id=80]
+[ext_resource path="res://tiles/hexset_grid_swamp_O_flat_03.png" type="Texture" id=81]
+[ext_resource path="res://tiles/hexset_grid_temperate_hill_02.png" type="Texture" id=82]
+[ext_resource path="res://tiles/hexset_grid_swamp_O_flat_01.png" type="Texture" id=83]
+[ext_resource path="res://tiles/hexset_grid_temperate_mont_01.png" type="Texture" id=84]
+[ext_resource path="res://tiles/hexset_grid_temperate_mont_02.png" type="Texture" id=85]
+[ext_resource path="res://tiles/hexset_grid_stone_O_flat_03.png" type="Texture" id=86]
+[ext_resource path="res://tiles/hexset_grid_swamp_hill_01.png" type="Texture" id=87]
+[ext_resource path="res://tiles/hexset_grid_swamp_hill_02.png" type="Texture" id=88]
+[ext_resource path="res://tiles/hexset_grid_swamp_O_flat_02.png" type="Texture" id=89]
+[ext_resource path="res://tiles/hexset_grid_stone_O_flat_01.png" type="Texture" id=90]
+[ext_resource path="res://tiles/hexset_grid_swamp_hill_03.png" type="Texture" id=91]
+[ext_resource path="res://tiles/hexset_grid_temperate_flat_02.png" type="Texture" id=92]
+[ext_resource path="res://tiles/hexset_grid_temperate_hill_03.png" type="Texture" id=93]
+[ext_resource path="res://tiles/hexset_grid_stone_mont_03.png" type="Texture" id=94]
+[ext_resource path="res://tiles/hexset_grid_temperate_mont_03.png" type="Texture" id=95]
+[ext_resource path="res://tiles/hexset_grid_temperate_O_flat_02.png" type="Texture" id=96]
+[ext_resource path="res://tiles/hexset_grid_temperate_O_flat_03.png" type="Texture" id=97]
+[ext_resource path="res://tiles/hexset_grid_snow_O_flat_03.png" type="Texture" id=98]
+[ext_resource path="res://tiles/hexset_grid_stone_hill_01.png" type="Texture" id=99]
+[ext_resource path="res://tiles/hexset_grid_stone_flat_01.png" type="Texture" id=100]
+[ext_resource path="res://tiles/hexset_grid_snow_O_flat_01.png" type="Texture" id=101]
+[ext_resource path="res://tiles/hexset_grid_stone_flat_03.png" type="Texture" id=102]
+[ext_resource path="res://tiles/hexset_grid_stone_hill_02.png" type="Texture" id=103]
+[ext_resource path="res://tiles/hexset_grid_stone_flat_02.png" type="Texture" id=104]
+[ext_resource path="res://tiles/hexset_grid_snow_O_flat_02.png" type="Texture" id=105]
+[ext_resource path="res://tiles/hexset_grid_stone_mont_01.png" type="Texture" id=106]
+[ext_resource path="res://tiles/hexset_grid_stone_hill_03.png" type="Texture" id=107]
+[ext_resource path="res://tiles/hexset_grid_stone_mont_02.png" type="Texture" id=108]
+[ext_resource path="res://tiles_more/hexset_grid_boreal_tree_01.png" type="Texture" id=109]
+[ext_resource path="res://tiles_more/hexset_grid_empty_01.png" type="Texture" id=110]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="HexsetGridBorealFlat01" type="Sprite" parent="."]
+texture = ExtResource( 33 )
+
+[node name="HexsetGridBorealFlat02" type="Sprite" parent="."]
+texture = ExtResource( 61 )
+
+[node name="HexsetGridBorealFlat03" type="Sprite" parent="."]
+texture = ExtResource( 55 )
+
+[node name="HexsetGridBorealHill01" type="Sprite" parent="."]
+texture = ExtResource( 59 )
+
+[node name="HexsetGridBorealHill02" type="Sprite" parent="."]
+texture = ExtResource( 37 )
+
+[node name="HexsetGridBorealHill03" type="Sprite" parent="."]
+texture = ExtResource( 52 )
+
+[node name="HexsetGridBorealMont01" type="Sprite" parent="."]
+texture = ExtResource( 51 )
+
+[node name="HexsetGridBorealMont02" type="Sprite" parent="."]
+texture = ExtResource( 32 )
+
+[node name="HexsetGridBorealMont03" type="Sprite" parent="."]
+texture = ExtResource( 56 )
+
+[node name="HexsetGridBorealOFlat01" type="Sprite" parent="."]
+texture = ExtResource( 34 )
+
+[node name="HexsetGridBorealOFlat02" type="Sprite" parent="."]
+texture = ExtResource( 47 )
+
+[node name="HexsetGridBorealOFlat03" type="Sprite" parent="."]
+texture = ExtResource( 38 )
+
+[node name="HexsetGridDesertFlat01" type="Sprite" parent="."]
+texture = ExtResource( 35 )
+
+[node name="HexsetGridDesertFlat02" type="Sprite" parent="."]
+texture = ExtResource( 48 )
+
+[node name="HexsetGridDesertFlat03" type="Sprite" parent="."]
+texture = ExtResource( 62 )
+
+[node name="HexsetGridDesertHill01" type="Sprite" parent="."]
+texture = ExtResource( 39 )
+
+[node name="HexsetGridDesertHill02" type="Sprite" parent="."]
+texture = ExtResource( 49 )
+
+[node name="HexsetGridDesertHill03" type="Sprite" parent="."]
+texture = ExtResource( 57 )
+
+[node name="HexsetGridDesertMont01" type="Sprite" parent="."]
+texture = ExtResource( 50 )
+
+[node name="HexsetGridDesertMont02" type="Sprite" parent="."]
+texture = ExtResource( 40 )
+
+[node name="HexsetGridDesertMont03" type="Sprite" parent="."]
+texture = ExtResource( 60 )
+
+[node name="HexsetGridDesertOFlat01" type="Sprite" parent="."]
+texture = ExtResource( 36 )
+
+[node name="HexsetGridDesertOFlat02" type="Sprite" parent="."]
+texture = ExtResource( 41 )
+
+[node name="HexsetGridDesertOFlat03" type="Sprite" parent="."]
+texture = ExtResource( 29 )
+
+[node name="HexsetGridSnowFlat01" type="Sprite" parent="."]
+texture = ExtResource( 30 )
+
+[node name="HexsetGridSnowFlat02" type="Sprite" parent="."]
+texture = ExtResource( 42 )
+
+[node name="HexsetGridSnowFlat03" type="Sprite" parent="."]
+texture = ExtResource( 31 )
+
+[node name="HexsetGridSnowHill01" type="Sprite" parent="."]
+texture = ExtResource( 43 )
+
+[node name="HexsetGridSnowHill02" type="Sprite" parent="."]
+texture = ExtResource( 44 )
+
+[node name="HexsetGridSnowHill03" type="Sprite" parent="."]
+texture = ExtResource( 45 )
+
+[node name="HexsetGridSnowMont01" type="Sprite" parent="."]
+texture = ExtResource( 46 )
+
+[node name="HexsetGridSnowMont02" type="Sprite" parent="."]
+texture = ExtResource( 53 )
+
+[node name="HexsetGridSnowMont03" type="Sprite" parent="."]
+texture = ExtResource( 54 )
+
+[node name="HexsetGridSnowOFlat01" type="Sprite" parent="."]
+texture = ExtResource( 101 )
+
+[node name="HexsetGridSnowOFlat02" type="Sprite" parent="."]
+texture = ExtResource( 105 )
+
+[node name="HexsetGridSnowOFlat03" type="Sprite" parent="."]
+texture = ExtResource( 98 )
+
+[node name="HexsetGridStoneFlat01" type="Sprite" parent="."]
+texture = ExtResource( 100 )
+
+[node name="HexsetGridStoneFlat02" type="Sprite" parent="."]
+texture = ExtResource( 104 )
+
+[node name="HexsetGridStoneFlat03" type="Sprite" parent="."]
+texture = ExtResource( 102 )
+
+[node name="HexsetGridStoneHill01" type="Sprite" parent="."]
+texture = ExtResource( 99 )
+
+[node name="HexsetGridStoneHill02" type="Sprite" parent="."]
+texture = ExtResource( 103 )
+
+[node name="HexsetGridStoneHill03" type="Sprite" parent="."]
+texture = ExtResource( 107 )
+
+[node name="HexsetGridStoneMont01" type="Sprite" parent="."]
+texture = ExtResource( 106 )
+
+[node name="HexsetGridStoneMont02" type="Sprite" parent="."]
+texture = ExtResource( 108 )
+
+[node name="HexsetGridStoneMont03" type="Sprite" parent="."]
+texture = ExtResource( 94 )
+
+[node name="HexsetGridStoneOFlat01" type="Sprite" parent="."]
+texture = ExtResource( 90 )
+
+[node name="HexsetGridStoneOFlat02" type="Sprite" parent="."]
+texture = ExtResource( 70 )
+
+[node name="HexsetGridStoneOFlat03" type="Sprite" parent="."]
+texture = ExtResource( 86 )
+
+[node name="HexsetGridSwampFlat01" type="Sprite" parent="."]
+texture = ExtResource( 68 )
+
+[node name="HexsetGridSwampFlat02" type="Sprite" parent="."]
+texture = ExtResource( 73 )
+
+[node name="HexsetGridSwampFlat03" type="Sprite" parent="."]
+texture = ExtResource( 77 )
+
+[node name="HexsetGridSwampHill01" type="Sprite" parent="."]
+texture = ExtResource( 87 )
+
+[node name="HexsetGridSwampHill02" type="Sprite" parent="."]
+texture = ExtResource( 88 )
+
+[node name="HexsetGridSwampHill03" type="Sprite" parent="."]
+texture = ExtResource( 91 )
+
+[node name="HexsetGridSwampMont01" type="Sprite" parent="."]
+texture = ExtResource( 64 )
+
+[node name="HexsetGridSwampMont02" type="Sprite" parent="."]
+texture = ExtResource( 72 )
+
+[node name="HexsetGridSwampMont03" type="Sprite" parent="."]
+texture = ExtResource( 80 )
+
+[node name="HexsetGridSwampOFlat01" type="Sprite" parent="."]
+texture = ExtResource( 83 )
+
+[node name="HexsetGridSwampOFlat02" type="Sprite" parent="."]
+texture = ExtResource( 89 )
+
+[node name="HexsetGridSwampOFlat03" type="Sprite" parent="."]
+texture = ExtResource( 81 )
+
+[node name="HexsetGridTemperateFlat01" type="Sprite" parent="."]
+texture = ExtResource( 78 )
+
+[node name="HexsetGridTemperateFlat02" type="Sprite" parent="."]
+texture = ExtResource( 92 )
+
+[node name="HexsetGridTemperateFlat03" type="Sprite" parent="."]
+texture = ExtResource( 71 )
+
+[node name="HexsetGridTemperateHill01" type="Sprite" parent="."]
+texture = ExtResource( 79 )
+
+[node name="HexsetGridTemperateHill02" type="Sprite" parent="."]
+texture = ExtResource( 82 )
+
+[node name="HexsetGridTemperateHill03" type="Sprite" parent="."]
+texture = ExtResource( 93 )
+
+[node name="HexsetGridTemperateMont01" type="Sprite" parent="."]
+texture = ExtResource( 84 )
+
+[node name="HexsetGridTemperateMont02" type="Sprite" parent="."]
+texture = ExtResource( 85 )
+
+[node name="HexsetGridTemperateMont03" type="Sprite" parent="."]
+texture = ExtResource( 95 )
+
+[node name="HexsetGridTemperateOFlat01" type="Sprite" parent="."]
+texture = ExtResource( 74 )
+
+[node name="HexsetGridTemperateOFlat02" type="Sprite" parent="."]
+texture = ExtResource( 96 )
+
+[node name="HexsetGridTemperateOFlat03" type="Sprite" parent="."]
+texture = ExtResource( 97 )
+
+[node name="HexsetGridWarmFlat01" type="Sprite" parent="."]
+texture = ExtResource( 63 )
+
+[node name="HexsetGridWarmFlat02" type="Sprite" parent="."]
+texture = ExtResource( 75 )
+
+[node name="HexsetGridWarmFlat03" type="Sprite" parent="."]
+texture = ExtResource( 65 )
+
+[node name="HexsetGridWarmHill01" type="Sprite" parent="."]
+texture = ExtResource( 66 )
+
+[node name="HexsetGridWarmHill02" type="Sprite" parent="."]
+texture = ExtResource( 67 )
+
+[node name="HexsetGridWarmHill03" type="Sprite" parent="."]
+texture = ExtResource( 76 )
+
+[node name="HexsetGridWarmMont01" type="Sprite" parent="."]
+texture = ExtResource( 69 )
+
+[node name="HexsetGridWarmMont02" type="Sprite" parent="."]
+texture = ExtResource( 20 )
+
+[node name="HexsetGridWarmMont03" type="Sprite" parent="."]
+texture = ExtResource( 15 )
+
+[node name="HexsetGridWarmOFlat01" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+
+[node name="HexsetGridWarmOFlat02" type="Sprite" parent="."]
+texture = ExtResource( 14 )
+
+[node name="HexsetGridWarmOFlat03" type="Sprite" parent="."]
+texture = ExtResource( 21 )
+
+[node name="HexsetGridWdeepFlat01" type="Sprite" parent="."]
+texture = ExtResource( 7 )
+
+[node name="HexsetGridWdeepFlat02" type="Sprite" parent="."]
+texture = ExtResource( 12 )
+
+[node name="HexsetGridWdeepFlat03" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="HexsetGridWdeepHill01" type="Sprite" parent="."]
+texture = ExtResource( 22 )
+
+[node name="HexsetGridWdeepHill02" type="Sprite" parent="."]
+texture = ExtResource( 19 )
+
+[node name="HexsetGridWdeepHill03" type="Sprite" parent="."]
+texture = ExtResource( 16 )
+
+[node name="HexsetGridWdeepMont01" type="Sprite" parent="."]
+texture = ExtResource( 28 )
+
+[node name="HexsetGridWdeepMont02" type="Sprite" parent="."]
+texture = ExtResource( 17 )
+
+[node name="HexsetGridWdeepMont03" type="Sprite" parent="."]
+texture = ExtResource( 18 )
+
+[node name="HexsetGridWdeepOFlat01" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="HexsetGridWdeepOFlat02" type="Sprite" parent="."]
+texture = ExtResource( 23 )
+
+[node name="HexsetGridWdeepOFlat03" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+
+[node name="HexsetGridWshallowFlat01" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+
+[node name="HexsetGridWshallowFlat02" type="Sprite" parent="."]
+texture = ExtResource( 8 )
+
+[node name="HexsetGridWshallowFlat03" type="Sprite" parent="."]
+texture = ExtResource( 24 )
+
+[node name="HexsetGridWshallowHill01" type="Sprite" parent="."]
+texture = ExtResource( 9 )
+
+[node name="HexsetGridWshallowHill02" type="Sprite" parent="."]
+texture = ExtResource( 10 )
+
+[node name="HexsetGridWshallowHill03" type="Sprite" parent="."]
+texture = ExtResource( 25 )
+
+[node name="HexsetGridWshallowMont01" type="Sprite" parent="."]
+texture = ExtResource( 11 )
+
+[node name="HexsetGridWshallowMont02" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="HexsetGridWshallowMont03" type="Sprite" parent="."]
+texture = ExtResource( 26 )
+
+[node name="HexsetGridWshallowOFlat01" type="Sprite" parent="."]
+texture = ExtResource( 27 )
+
+[node name="HexsetGridWshallowOFlat02" type="Sprite" parent="."]
+texture = ExtResource( 13 )
+
+[node name="HexsetGridWshallowOFlat03" type="Sprite" parent="."]
+texture = ExtResource( 58 )
+
+[node name="HexsetGridBorealTree01" type="Sprite" parent="."]
+texture = ExtResource( 109 )
+
+[node name="HexsetGridEmpty01" type="Sprite" parent="."]
+texture = ExtResource( 110 )

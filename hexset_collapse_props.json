@@ -1,0 +1,40 @@
+{
+  "tiles": [
+    {
+      "id": 0,
+      "name": "HexsetGridBorealFlat01",
+      "ruleset": {
+        "allowed_neighbors": [
+          0, 1, 3
+        ]
+      }
+    },
+    {
+      "id": 1,
+      "name": "HexsetGridBorealHill01"
+      "ruleset": {
+        "allowed_neighbors": [
+          0, 1, 2
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": "HexsetGridBorealMont01"
+      "ruleset": {
+        "allowed_neighbors": [
+          1, 2
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "name": "HexsetGridWshallowFlat01"
+      "ruleset": {
+        "allowed_neighbors": [
+          0, 3
+        ]
+      }
+    },
+  ]
+}
