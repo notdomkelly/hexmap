@@ -25,25 +25,37 @@ func build_binary_rep():
 
 var type_sets = {
 	"boreal_flat": [
-		"HexsetGridBorealFlat01"
+		"HexsetGridBorealFlat01",
+		"HexsetGridBorealFlat02",
+		"HexsetGridBorealFlat03",
 	],
 	"boreal_hill": [
-		"HexsetGridBorealHill01"
+		"HexsetGridBorealHill01",
+		"HexsetGridBorealHill02",
+		"HexsetGridBorealHill03",
 	],
 	"boreal_mont": [
-		"HexsetGridBorealMont01"
+		"HexsetGridBorealMont01",
+		"HexsetGridBorealMont02",
+		"HexsetGridBorealMont03",
 	],
 	"shallow_flat": [
-		"HexsetGridWshallowFlat01"
+		"HexsetGridWshallowFlat01",
+		"HexsetGridWshallowFlat02",
+		"HexsetGridWshallowFlat03",
 	],
 	"deep_flat": [
 		"HexsetGridWdeepFlat01",
+		"HexsetGridWdeepFlat02",
+		"HexsetGridWdeepFlat03",
 	],
 	"boreal_tree": [
-		"HexsetGridBorealTree01"
+		"HexsetGridBorealTree01",
 	],
 	"desert_flat": [
-		"HexsetGridDesertFlat01"
+		"HexsetGridDesertFlat01",
+		"HexsetGridDesertFlat02",
+		"HexsetGridDesertFlat03",
 	],
 #	"stone_flat": [
 #		"HexsetGridStoneFlat01",
@@ -96,16 +108,11 @@ var type_rules = {
 		"desert_flat": [
 			"desert_flat",
 			"boreal_flat",
-			# "shallow_flat",
 		],
 		"deep_flat": [
 			"deep_flat",
 			"shallow_flat",
 		],
-#		"stone_flat": [
-#			"stone_flat",
-#			"boreal_flat",
-#		],
 	},
 }
 

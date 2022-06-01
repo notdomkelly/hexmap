@@ -1,18 +1,5 @@
 extends Node2D
 
-# TODOS:
-#
-# - Keep track of total amount of each type, and weigh a type lower the closer it is to
-#		'filling' (but never 0!)
-#		- if a type is extremely low, chance to jump to higher entropy and build that type
-# - Weigh higher the more neighbors match
-# 		- Depending on types?
-# - Some basic rules? i.e., shallows must border at least one sand, which must border at least one grass?
-#		- gonna be pretty tricky. Should those rules just influence the weighting?
-#		- lots of potential there for getting into an unsolvable state
-# - Figure out how to not make the numbers I'm dealing with so freaking crazy high
-#		- maybe limits on weights? So we can't get like 1x10^-30
-
 
 export var size = 125
 export var animate_render = true
@@ -217,8 +204,6 @@ func _on_collapse_single_tile(tile_pos, tile_type):
 	var spec_type = rng.randf_range(0, tiles_for_type.size())
 	var tile_id = $HexMap.tile_set.find_tile_by_name(tiles_for_type[spec_type])
 	$HexMap.set_cellv(tile_pos, tile_id)
-#	collapsible_tiles[tile_pos].clear()
-#	collapsible_tiles.erase(tile_pos)
 	
 func _on_entropy_updated(tile_pos, og_entropy, new_entropy):
 	if og_entropy == new_entropy:

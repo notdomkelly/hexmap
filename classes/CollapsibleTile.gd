@@ -42,7 +42,6 @@ var entropy = 100
 func _init(_key, _rng):
 	self.key = _key
 	self.rng = _rng
-#	self._possible_states_set(HexCollapseData.type_sets.keys())
 	var new_state_bin = 0
 	for state in HexCollapseData.binary_data["tiles_for_types"].keys():
 		new_state_bin |= state
@@ -137,22 +136,6 @@ func _collapse_final(type):
 	emit_signal("on_entropy_updated", self.key, og_entropy, self.entropy)
 		
 func _possible_states_set(new_states):
-#	var new_state_bin = 0
-#	for state in new_states:
-#		new_state_bin ^= state
-#
-#	# determine if there's actually a change between states
-#	var states_dirty = true
-#	if self.possible_states.size() == new_states.size():
-#		states_dirty = false
-#		for x in self.possible_states:
-#			if not x in new_states:
-#				states_dirty = true
-#				break
-#		for x in new_states:
-#			if not x in self.possible_states:
-#				states_dirty = true
-#				break
 			
 	if new_states == self.possible_states:
 		self.dirty = false
@@ -169,24 +152,6 @@ func _possible_states_set(new_states):
 				allowed_types = neighbor_rules[bit]
 			else:
 				allowed_types |= neighbor_rules[bit]
-
-#		var ruleset_neighbors = neighbor_rules[state]
-#		for t_type in ruleset_neighbors:
-#			if not t_type in allowed_types:
-#				allowed_types[t_type] = null
-				
-	
-#	var allowed_neighbors_dirty = true
-#	if self.allowed_neighbor_states.size() == allowed_types.size():
-#		allowed_neighbors_dirty = false
-#		for x in self.allowed_neighbor_states:
-#			if not x in allowed_types:
-#				allowed_neighbors_dirty = true
-#				break
-#		for x in allowed_types:
-#			if not x in self.allowed_neighbor_states:
-#				allowed_neighbors_dirty = true
-#				break
 				
 	
 	# if there is, tell the neighbors they need to re-evaluate
@@ -206,9 +171,6 @@ func _get_weights__from_neighbor(weights):
 		collapsed_neighbors[weight] = 0
 	
 	for neighbor in self.collapsed_neighbor_types:
-#		if not neighbor.collapsed:
-#			continue
-#		var n_state = neighbor.possible_states[0]
 		collapsed_neighbors[neighbor] += 1
 	return collapsed_neighbors
 	
@@ -228,15 +190,6 @@ func _get_possible_states_from_neighbors():
 			joined_states = self.neighbors[n_key].allowed_neighbor_states
 		else:
 			joined_states &= self.neighbors[n_key].allowed_neighbor_states
-#		var allowed_types = self.neighbors[n_key].allowed_neighbor_states
-#		if first_neighbor:
-#			# at first, just grab all allowable types from the first neighbor
-#			new_possible_states = allowed_types.duplicate()
-#			first_neighbor = false
-#			continue
-		# and for each subsequent neighbor, remove a state if the new neighbor doesn't allow it
-		# and otherwise add the weights together
-#		new_possible_states = self._strip_possible_states(new_possible_states, allowed_types)
 	return joined_states
 	
 func _strip_possible_states(new_possible_states, allowed_types):
