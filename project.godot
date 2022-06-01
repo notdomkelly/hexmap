@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Tilemap Testing"
+config/name="notdomkelly's Hexmap"
 run/main_scene="res://MapBuilder.tscn"
 config/icon="res://icon.png"
 
