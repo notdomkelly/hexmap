@@ -43,7 +43,7 @@ margin_bottom = 54.0
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 141.0
-margin_bottom = 135.0
+margin_bottom = 119.0
 custom_constants/separation = 12
 alignment = 2
 
@@ -97,37 +97,6 @@ margin_bottom = 34.0
 text = "Size"
 align = 2
 
-[node name="HSeparator" type="HSeparator" parent="UI Layer/UI Root/PanelContainer/Map Panel"]
-margin_top = 124.0
-margin_right = 134.0
-margin_bottom = 128.0
-
-[node name="Perc Panel" type="VBoxContainer" parent="UI Layer/UI Root/PanelContainer/Map Panel"]
-visible = false
-margin_top = 140.0
-margin_right = 134.0
-margin_bottom = 174.0
-
-[node name="BorealFlat" type="VBoxContainer" parent="UI Layer/UI Root/PanelContainer/Map Panel/Perc Panel"]
-margin_right = 134.0
-margin_bottom = 34.0
-
-[node name="BorealFlatSlider" type="HSlider" parent="UI Layer/UI Root/PanelContainer/Map Panel/Perc Panel/BorealFlat"]
-margin_right = 134.0
-margin_bottom = 16.0
-value = 1.0
-scrollable = false
-tick_count = 1
-ticks_on_borders = true
-
-[node name="BorealFlatLabel" type="Label" parent="UI Layer/UI Root/PanelContainer/Map Panel/Perc Panel/BorealFlat"]
-margin_top = 20.0
-margin_right = 134.0
-margin_bottom = 34.0
-text = "Grass"
-align = 2
-
 [connection signal="pressed" from="UI Layer/UI Root/PanelContainer/Map Panel/GenMapButton" to="." method="_on_GenMapButton_pressed"]
 [connection signal="value_changed" from="UI Layer/UI Root/PanelContainer/Map Panel/AnimateControls/GenSpeedSlider" to="." method="_on_GenSpeedSlider_value_changed"]
 [connection signal="value_changed" from="UI Layer/UI Root/PanelContainer/Map Panel/SizeControls/SizeSlider" to="." method="_on_SizeSlider_value_changed"]
-[connection signal="value_changed" from="UI Layer/UI Root/PanelContainer/Map Panel/Perc Panel/BorealFlat/BorealFlatSlider" to="." method="_on_LandType_value_changed" binds= [ "boreal_flat", "BorealFlat", "Grass" ]]
