@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://tileset/hex_tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://MapBuilder.gd" type="Script" id=2]
-[ext_resource path="res://MainCamera.gd" type="Script" id=3]
-[ext_resource path="res://HexMap.gd" type="Script" id=5]
+[ext_resource path="res://scripts/MainCamera.gd" type="Script" id=1]
+[ext_resource path="res://scripts/HexWaveCollapseGenerator.gd" type="Script" id=2]
+[ext_resource path="res://themes/kenneyUI/kenneyUI-blue.tres" type="Theme" id=3]
+[ext_resource path="res://tileset/hex_tileset.tres" type="TileSet" id=4]
+[ext_resource path="res://scripts/HexMap.gd" type="Script" id=5]
 
-[node name="MapBuilder" type="Node2D"]
+[node name="Root" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="HexMap" type="TileMap" parent="."]
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 32, 20 )
 cell_half_offset = 0
 cell_tile_origin = 1
@@ -21,7 +22,7 @@ script = ExtResource( 5 )
 [node name="MainCamera" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 5, 5 )
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 
 [node name="UI Layer" type="CanvasLayer" parent="."]
 
@@ -32,34 +33,40 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -10.0
+theme = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="UI Layer/UI Root"]
+margin_right = 21.3241
+margin_bottom = 42.251
+text = "< Back"
 
 [node name="PanelContainer" type="PanelContainer" parent="UI Layer/UI Root"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -148.0
-margin_bottom = 54.0
+margin_left = -233.0
+margin_bottom = 208.0
 
 [node name="Map Panel" type="VBoxContainer" parent="UI Layer/UI Root/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 141.0
-margin_bottom = 135.0
+margin_right = 226.0
+margin_bottom = 201.0
 custom_constants/separation = 12
 alignment = 2
 
 [node name="GenMapButton" type="Button" parent="UI Layer/UI Root/PanelContainer/Map Panel"]
-margin_right = 134.0
-margin_bottom = 20.0
+margin_right = 219.324
+margin_bottom = 42.251
 text = "Generate New Map"
 
 [node name="AnimateControls" type="VBoxContainer" parent="UI Layer/UI Root/PanelContainer/Map Panel"]
-margin_top = 32.0
-margin_right = 134.0
-margin_bottom = 66.0
+margin_top = 54.0
+margin_right = 219.0
+margin_bottom = 118.0
 
 [node name="GenSpeedSlider" type="HSlider" parent="UI Layer/UI Root/PanelContainer/Map Panel/AnimateControls"]
-margin_right = 134.0
-margin_bottom = 16.0
+margin_right = 219.0
+margin_bottom = 42.0
 min_value = 1.0
 max_value = 500.0
 value = 1.0
@@ -68,20 +75,20 @@ tick_count = 5
 ticks_on_borders = true
 
 [node name="AnimateLabel" type="Label" parent="UI Layer/UI Root/PanelContainer/Map Panel/AnimateControls"]
-margin_top = 20.0
-margin_right = 134.0
-margin_bottom = 34.0
+margin_top = 46.0
+margin_right = 219.0
+margin_bottom = 64.0
 text = "Animate Speed"
 align = 2
 
 [node name="SizeControls" type="VBoxContainer" parent="UI Layer/UI Root/PanelContainer/Map Panel"]
-margin_top = 78.0
-margin_right = 134.0
-margin_bottom = 112.0
+margin_top = 130.0
+margin_right = 219.0
+margin_bottom = 194.0
 
 [node name="SizeSlider" type="HSlider" parent="UI Layer/UI Root/PanelContainer/Map Panel/SizeControls"]
-margin_right = 134.0
-margin_bottom = 16.0
+margin_right = 219.0
+margin_bottom = 42.0
 min_value = 1.0
 max_value = 500.0
 step = 5.0
@@ -91,43 +98,13 @@ tick_count = 10
 ticks_on_borders = true
 
 [node name="SizeLabel" type="Label" parent="UI Layer/UI Root/PanelContainer/Map Panel/SizeControls"]
-margin_top = 20.0
-margin_right = 134.0
-margin_bottom = 34.0
+margin_top = 46.0
+margin_right = 219.0
+margin_bottom = 64.0
 text = "Size"
 align = 2
 
-[node name="HSeparator" type="HSeparator" parent="UI Layer/UI Root/PanelContainer/Map Panel"]
-margin_top = 124.0
-margin_right = 134.0
-margin_bottom = 128.0
-
-[node name="Perc Panel" type="VBoxContainer" parent="UI Layer/UI Root/PanelContainer/Map Panel"]
-visible = false
-margin_top = 140.0
-margin_right = 134.0
-margin_bottom = 174.0
-
-[node name="BorealFlat" type="VBoxContainer" parent="UI Layer/UI Root/PanelContainer/Map Panel/Perc Panel"]
-margin_right = 134.0
-margin_bottom = 34.0
-
-[node name="BorealFlatSlider" type="HSlider" parent="UI Layer/UI Root/PanelContainer/Map Panel/Perc Panel/BorealFlat"]
-margin_right = 134.0
-margin_bottom = 16.0
-value = 1.0
-scrollable = false
-tick_count = 1
-ticks_on_borders = true
-
-[node name="BorealFlatLabel" type="Label" parent="UI Layer/UI Root/PanelContainer/Map Panel/Perc Panel/BorealFlat"]
-margin_top = 20.0
-margin_right = 134.0
-margin_bottom = 34.0
-text = "Grass"
-align = 2
-
+[connection signal="pressed" from="UI Layer/UI Root/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="UI Layer/UI Root/PanelContainer/Map Panel/GenMapButton" to="." method="_on_GenMapButton_pressed"]
 [connection signal="value_changed" from="UI Layer/UI Root/PanelContainer/Map Panel/AnimateControls/GenSpeedSlider" to="." method="_on_GenSpeedSlider_value_changed"]
 [connection signal="value_changed" from="UI Layer/UI Root/PanelContainer/Map Panel/SizeControls/SizeSlider" to="." method="_on_SizeSlider_value_changed"]
-[connection signal="value_changed" from="UI Layer/UI Root/PanelContainer/Map Panel/Perc Panel/BorealFlat/BorealFlatSlider" to="." method="_on_LandType_value_changed" binds= [ "boreal_flat", "BorealFlat", "Grass" ]]

@@ -53,10 +53,12 @@ func clear():
 func mark_dirty():
 	self.dirty = true if not self.collapsed else false
 	
-func calculate_entropy(weights_by_type):
+func calculate_entropy(weights_by_type, override=null):
 	var og_entropy = self.entropy
 	if self.collapsed:
 		self.entropy = -1
+	elif override:
+		self.entropy = override
 	else:
 		var weight_sum = 0
 		var weight_sum_log = 0
@@ -70,7 +72,7 @@ func calculate_entropy(weights_by_type):
 		for neighbor in self.neighbors.values():
 			if neighbor.collapsed:
 				self.entropy = self.entropy / 10
-		
+				
 	if og_entropy != self.entropy:
 		emit_signal("on_entropy_updated", self.key, og_entropy, self.entropy)
 
@@ -90,10 +92,9 @@ func get_dirty_neighbors():
 	
 	return ret
 	
-func collapse(weights_by_type):
+func collapse():
 	var new_possible_states = self._get_possible_states_from_neighbors()
 	self._possible_states_set(new_possible_states)
-	self.calculate_entropy(weights_by_type)
 	
 	# and mark myself updated
 	self.dirty = false
@@ -130,10 +131,8 @@ func _collapse_final(type):
 	self._possible_states_set(type)
 	for neighbor in self.neighbors.values():
 		neighbor.collapsed_neighbor_types.append(type)
-	var og_entropy = self.entropy
-	self.entropy = -1
+	self.calculate_entropy(null, -1)
 	emit_signal("on_collapsed", self.key, type)
-	emit_signal("on_entropy_updated", self.key, og_entropy, self.entropy)
 		
 func _possible_states_set(new_states):
 			

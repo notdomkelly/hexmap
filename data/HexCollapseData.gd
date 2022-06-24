@@ -73,6 +73,13 @@ var type_rules = {
 		"deep_flat": 25,
 #		"stone_flat": 1,
 	},
+	"elevations": {
+		-100: "deep_flat",
+		-20: "shallow_flat",
+		0: "boreal_flat",
+		45: "boreal_hill",
+		80: "boreal_mont",
+	},
 	"neighbors": {
 		"boreal_flat": [
 			"boreal_flat", 

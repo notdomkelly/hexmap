@@ -1,0 +1,127 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/HexNoiseGenerator.gd" type="Script" id=1]
+[ext_resource path="res://tileset/hex_tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://themes/kenneyUI/kenneyUI-blue.tres" type="Theme" id=4]
+
+[node name="Root" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="HexMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 20 )
+cell_half_offset = 0
+cell_tile_origin = 1
+cell_y_sort = true
+centered_textures = true
+format = 1
+
+[node name="MainCamera" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 5, 5 )
+
+[node name="UI Layer" type="CanvasLayer" parent="."]
+
+[node name="UI Root" type="Control" parent="UI Layer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+theme = ExtResource( 4 )
+
+[node name="BackButton" type="Button" parent="UI Layer/UI Root"]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "< Back"
+
+[node name="PanelContainer" type="PanelContainer" parent="UI Layer/UI Root"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -233.0
+margin_bottom = 56.0
+
+[node name="Map Panel" type="VBoxContainer" parent="UI Layer/UI Root/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 226.0
+margin_bottom = 274.0
+custom_constants/separation = 12
+alignment = 2
+
+[node name="GenMapButton" type="Button" parent="UI Layer/UI Root/PanelContainer/Map Panel"]
+margin_right = 219.0
+margin_bottom = 42.251
+text = "Random Seed"
+
+[node name="SeedControl" type="VBoxContainer" parent="UI Layer/UI Root/PanelContainer/Map Panel"]
+margin_top = 54.0
+margin_right = 219.0
+margin_bottom = 115.0
+rect_pivot_offset = Vector2( -468, 54 )
+
+[node name="SeedSpinBox" type="SpinBox" parent="UI Layer/UI Root/PanelContainer/Map Panel/SeedControl"]
+margin_right = 219.0
+margin_bottom = 39.4343
+allow_greater = true
+allow_lesser = true
+
+[node name="SeedLabel" type="Label" parent="UI Layer/UI Root/PanelContainer/Map Panel/SeedControl"]
+margin_top = 43.0
+margin_right = 219.0
+margin_bottom = 61.0
+text = "Seed"
+align = 1
+
+[node name="FrequencyControl" type="VBoxContainer" parent="UI Layer/UI Root/PanelContainer/Map Panel"]
+margin_top = 127.0
+margin_right = 219.0
+margin_bottom = 191.0
+rect_pivot_offset = Vector2( -468, 54 )
+
+[node name="FrequencySlider" type="HSlider" parent="UI Layer/UI Root/PanelContainer/Map Panel/FrequencyControl"]
+margin_right = 219.0
+margin_bottom = 42.0
+min_value = 1.0
+value = 1.0
+scrollable = false
+tick_count = 5
+ticks_on_borders = true
+
+[node name="FrequencyLabel" type="Label" parent="UI Layer/UI Root/PanelContainer/Map Panel/FrequencyControl"]
+margin_top = 46.0
+margin_right = 219.0
+margin_bottom = 64.0
+text = "Zoom"
+align = 1
+
+[node name="ScaleControl" type="VBoxContainer" parent="UI Layer/UI Root/PanelContainer/Map Panel"]
+margin_top = 203.0
+margin_right = 219.0
+margin_bottom = 267.0
+rect_pivot_offset = Vector2( -468, 54 )
+
+[node name="ScaleSlider" type="HSlider" parent="UI Layer/UI Root/PanelContainer/Map Panel/ScaleControl"]
+margin_right = 219.0
+margin_bottom = 42.0
+min_value = 0.01
+max_value = 1.0
+step = 0.01
+value = 0.5
+scrollable = false
+tick_count = 5
+ticks_on_borders = true
+
+[node name="ScaleLabel" type="Label" parent="UI Layer/UI Root/PanelContainer/Map Panel/ScaleControl"]
+margin_top = 46.0
+margin_right = 219.0
+margin_bottom = 64.0
+text = "Variation"
+align = 1
+
+[connection signal="pressed" from="UI Layer/UI Root/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="UI Layer/UI Root/PanelContainer/Map Panel/GenMapButton" to="." method="_on_GenMapButton_pressed"]
+[connection signal="value_changed" from="UI Layer/UI Root/PanelContainer/Map Panel/SeedControl/SeedSpinBox" to="." method="_on_SeedSpinBox_value_changed"]
+[connection signal="value_changed" from="UI Layer/UI Root/PanelContainer/Map Panel/FrequencyControl/FrequencySlider" to="." method="_on_FrequencySlider_value_changed"]
+[connection signal="value_changed" from="UI Layer/UI Root/PanelContainer/Map Panel/ScaleControl/ScaleSlider" to="." method="_on_ScaleSlider_value_changed"]

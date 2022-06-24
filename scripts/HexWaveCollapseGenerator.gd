@@ -9,6 +9,7 @@ var rng = RandomNumberGenerator.new()
 var collapsible_tiles = {}
 var type_totals = {}
 var entropy_map = {}
+var dirty_entropy_tiles = {}
 var type_avg_fraction = {}
 var num_built_since_last_yield = 0
 var stop_build = false
@@ -32,7 +33,7 @@ func _ready():
 	$"UI Layer/UI Root/PanelContainer/Map Panel/SizeControls/SizeLabel".text = 'Size: ' + str(size)
 	
 	load_collapse_data()
-	build_fake_maps()
+	# build_fake_maps()
 
 func clear_map():
 	$HexMap.clear()
@@ -80,9 +81,10 @@ func collapse_propogate(tile_pos):
 			# sanity check
 			continue
 		
-		next_tile.collapse(weights_by_type)
+		next_tile.collapse()
 		if next_tile.collapsed:
 			next_tile.collapse_full(weights_by_type)
+		dirty_entropy_tiles[next_tile.key] = next_tile
 		
 		for neigh in next_tile.get_dirty_neighbors():
 			if not neigh in tiles_to_check and not neigh.collapsed:
@@ -93,7 +95,9 @@ func build_fake_maps():
 		state.clear()
 			
 	collapsible_tiles = {}
+	dirty_entropy_tiles = {}
 	entropy_map = {}
+	entropy_map[100] = {}
 	for state in type_totals:
 		type_totals[state] = 0
 	var empty_tile = $HexMap.tile_set.find_tile_by_name('HexsetGridEmpty01')
@@ -106,12 +110,17 @@ func build_fake_maps():
 			collapsible_tiles[key] = new_tile
 			new_tile.connect('on_collapsed', self, '_on_collapse_single_tile')
 			new_tile.connect('on_entropy_updated', self, '_on_entropy_updated')
-			$HexMap.set_cellv(key, empty_tile)
+			entropy_map[100][key] = null
+			if $HexMap.get_cellv(key) != empty_tile:
+				$HexMap.set_cellv(key, empty_tile)
 	
-	var weights_by_type = get_weights_as_fraction_of_total()
+	# Randomly select a tile as the start for more interesting generation
+	var keys = collapsible_tiles.keys()
+	var random_key = keys[rng.randf_range(0, keys.size())]
+	collapsible_tiles[random_key].calculate_entropy(null, 99)
+	
 	for state in collapsible_tiles.values():
 		state.set_neighbors(collapsible_tiles)
-		state.calculate_entropy(weights_by_type)
 		
 	prev_size = size
 		
@@ -172,6 +181,11 @@ func build_ocean_edges():
 func find_next_tile():
 	if entropy_map.size() == 0:
 		return null
+		
+	var weights_by_type = get_weights_as_fraction_of_total()
+	for tile in dirty_entropy_tiles.values():
+		tile.calculate_entropy(weights_by_type)
+	dirty_entropy_tiles = {}
 	
 	var entropies = entropy_map.keys()
 	entropies.sort()
@@ -190,10 +204,6 @@ func should_perform_animate_step():
 		else:
 			num_built_since_last_yield = 0
 	return do_yield
-	
-func update_land_perc(type, new_val, ui_name, ui_display):
-	var node = get_node("UI Layer/UI Root/PanelContainer/Map Panel/Perc Panel/" + str(ui_name) + "/" + str(ui_name) + "Label")
-	node.text = ui_display + ' - ' + str(new_val)
 
 
 ## SIGNAL CONNECTIONS ##
@@ -238,5 +248,5 @@ func _on_SizeSlider_value_changed(value):
 	stop_build = true
 
 
-func _on_LandType_value_changed(value, type, ui_name, ui_display):
-	update_land_perc(type, value, ui_name, ui_display)
+func _on_Button_pressed():
+	get_tree().change_scene("res://scenes/Main.tscn")
