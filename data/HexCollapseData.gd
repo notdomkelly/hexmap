@@ -21,6 +21,50 @@ func build_binary_rep():
 			bin_neigh = bin_neigh | binary_map[n_type]
 		binary_data["neighbors"][bin_val] = bin_neigh
 		binary_data["back_map"][bin_val] = type
+		
+func get_biome(e, m):
+	if e < 0.45:
+		return "deep_flat"
+	if e < 0.5:
+		return "shallow_flat"
+		
+	var biome = ""
+	var height = ""
+		
+	if e > 0.85:
+		if m < 0.05: 
+			return "stone_mont"
+		if m < 0.2:
+			return "desert_mont"
+		if m < 0.3:
+			return "warm_mont"
+		if m < 0.5:
+			return "boreal_mont"
+		if m < 0.6:
+			return "temperate_mont"
+		return "snow_mont"
+	
+	if e > 0.7:
+		if m < 0.15:
+			return "desert_hill"
+		if m < 0.35:
+			return "warm_hill"
+		if m < 0.7:
+			return "boreal_hill"
+		if m < 0.95:
+			return "temperate_hill"
+		return "swamp_hill"
+		
+	if m < 0.15:
+		return "desert_flat"
+	if m < 0.4:
+		return "warm_flat"
+	if m < 0.7:
+		return "boreal_flat"
+	if m < 0.93:
+		return "temperate_flat"
+	return "swamp_flat"
+		
 	
 
 var type_sets = {
@@ -57,6 +101,18 @@ var type_sets = {
 		"HexsetGridDesertFlat02",
 		"HexsetGridDesertFlat03",
 	],
+	"desert_hill": ["HexsetGridDesertHill01"],
+	"desert_mont": ["HexsetGridDesertMont01"],
+	"stone_mont": ["HexsetGridStoneMont01"],
+	"warm_flat": ["HexsetGridWarmFlat01"],
+	"warm_hill": ["HexsetGridWarmHill01"],
+	"warm_mont": ["HexsetGridWarmMont01"],
+	"temperate_flat": ["HexsetGridTemperateFlat01"],
+	"temperate_hill": ["HexsetGridTemperateHill01"],
+	"temperate_mont": ["HexsetGridTemperateMont01"],
+	"snow_mont": ["HexsetGridSnowMont01"],
+	"swamp_flat": ["HexsetGridSwampFlat01"],
+	"swamp_hill": ["HexsetGridSwampHill01"],
 #	"stone_flat": [
 #		"HexsetGridStoneFlat01",
 #	],
@@ -72,13 +128,6 @@ var type_rules = {
 		"desert_flat": 5,
 		"deep_flat": 25,
 #		"stone_flat": 1,
-	},
-	"elevations": {
-		-100: "deep_flat",
-		-20: "shallow_flat",
-		0: "boreal_flat",
-		45: "boreal_hill",
-		80: "boreal_mont",
 	},
 	"neighbors": {
 		"boreal_flat": [
