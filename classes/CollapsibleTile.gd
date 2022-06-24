@@ -92,7 +92,7 @@ func get_dirty_neighbors():
 	
 	return ret
 	
-func collapse(weights_by_type):
+func collapse():
 	var new_possible_states = self._get_possible_states_from_neighbors()
 	self._possible_states_set(new_possible_states)
 	

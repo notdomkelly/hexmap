@@ -81,7 +81,7 @@ func collapse_propogate(tile_pos):
 			# sanity check
 			continue
 		
-		next_tile.collapse(weights_by_type)
+		next_tile.collapse()
 		if next_tile.collapsed:
 			next_tile.collapse_full(weights_by_type)
 		dirty_entropy_tiles[next_tile.key] = next_tile
@@ -246,3 +246,7 @@ func _on_SizeSlider_value_changed(value):
 	size = value
 	$"UI Layer/UI Root/PanelContainer/Map Panel/SizeControls/SizeLabel".text = 'Size: ' + str(value)
 	stop_build = true
+
+
+func _on_Button_pressed():
+	get_tree().change_scene("res://scenes/Main.tscn")
