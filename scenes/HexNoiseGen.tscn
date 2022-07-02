@@ -46,7 +46,7 @@ margin_bottom = 56.0
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 226.0
-margin_bottom = 274.0
+margin_bottom = 317.0
 custom_constants/separation = 12
 alignment = 2
 
@@ -120,8 +120,26 @@ margin_bottom = 64.0
 text = "Variation"
 align = 1
 
+[node name="FalloffControl" type="VBoxContainer" parent="UI Layer/UI Root/PanelContainer/Map Panel"]
+margin_top = 279.0
+margin_right = 219.0
+margin_bottom = 310.0
+
+[node name="FalloffType" type="ItemList" parent="UI Layer/UI Root/PanelContainer/Map Panel/FalloffControl"]
+margin_right = 219.0
+margin_bottom = 9.0
+auto_height = true
+
+[node name="FalloffLabel" type="Label" parent="UI Layer/UI Root/PanelContainer/Map Panel/FalloffControl"]
+margin_top = 13.0
+margin_right = 219.0
+margin_bottom = 31.0
+text = "Falloff"
+align = 1
+
 [connection signal="pressed" from="UI Layer/UI Root/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="UI Layer/UI Root/PanelContainer/Map Panel/GenMapButton" to="." method="_on_GenMapButton_pressed"]
 [connection signal="value_changed" from="UI Layer/UI Root/PanelContainer/Map Panel/SeedControl/SeedSpinBox" to="." method="_on_SeedSpinBox_value_changed"]
 [connection signal="value_changed" from="UI Layer/UI Root/PanelContainer/Map Panel/FrequencyControl/FrequencySlider" to="." method="_on_FrequencySlider_value_changed"]
 [connection signal="value_changed" from="UI Layer/UI Root/PanelContainer/Map Panel/ScaleControl/ScaleSlider" to="." method="_on_ScaleSlider_value_changed"]
+[connection signal="item_selected" from="UI Layer/UI Root/PanelContainer/Map Panel/FalloffControl/FalloffType" to="." method="_on_FalloffType_item_selected"]

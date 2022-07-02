@@ -2,6 +2,8 @@ extends Node2D
 
 
 export var size = 125
+var actual_size
+var edge_buffer = 10
 export var pan_speed = 100
 export var zoom_speed = 100
 
@@ -9,6 +11,9 @@ var elevation_noise = OpenSimplexNoise.new()
 var moisture_noise = OpenSimplexNoise.new()
 var offset = Vector2(0, 0)
 var is_building = false
+
+var falloff_types = ['None', 'Circle', 'Rectangle']
+var curr_falloff_type = 0
 
 var rng = RandomNumberGenerator.new()
 class CustomElevationSorter:
@@ -21,6 +26,10 @@ func get_map_size():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	for x in falloff_types:
+		$"UI Layer/UI Root/PanelContainer/Map Panel/FalloffControl/FalloffType".add_item(x)
+	$"UI Layer/UI Root/PanelContainer/Map Panel/FalloffControl/FalloffType".select(curr_falloff_type)
+	actual_size = get_map_size()
 	# Configure
 	elevation_noise.seed = randi()
 	elevation_noise.period = 20.0
@@ -40,32 +49,34 @@ func build_map(random_m = true):
 	if random_m:
 		moisture_noise.seed = randi()
 	
-	var actualSize = get_map_size()
-	
-	var min_e = 100
-	var max_e = 0
-	
-	for x in range(-actualSize, actualSize):
-		for y in range(-actualSize, actualSize):
+	for x in range(-actual_size, actual_size):
+		for y in range(-actual_size, actual_size):
 			var noisePos = Vector2(x, y)
+			
 			var elevation = (elevation_noise.get_noise_2dv(noisePos) * 1.5 + 1.0) / 2.0
 			var moisture = (moisture_noise.get_noise_2dv(noisePos) * 1.5 + 1.0) / 2.0
-			if elevation < min_e:
-				min_e = elevation
-			if elevation > max_e:
-				max_e = elevation
-			# var height = _get_height(noisePos, elevation_keys)
-			# var tile_type = elevation_map[height]
+			
+			elevation = get_falloff_elevation(elevation, noisePos)
+			
 			var tile_type = HexCollapseData.get_biome(elevation, moisture)
 			$HexMap.set_cell(x, y, $HexMap.tile_set.find_tile_by_name(HexCollapseData.type_sets[tile_type][0]))
-	print(min_e)
-	print(max_e)
 	is_building = false
 	
-#func _get_height(actualPos, elevation_keys):
-#	var r_height = elevation_noise.get_noise_2dv(actualPos) * 100 * 1.5
-#	var idx = elevation_keys.bsearch(r_height) - 1
-#	return elevation_keys[idx] if idx >= 0 else elevation_keys[0]
+	
+func get_falloff_elevation(elevation, pos):
+	if curr_falloff_type == 1:
+		var dist_from_edge = actual_size - pos.distance_to(Vector2(0, 0))
+		if dist_from_edge < edge_buffer:
+			elevation = elevation * (elevation + dist_from_edge / 100)
+	elif curr_falloff_type == 2:
+		if actual_size - abs(pos.x) < edge_buffer:
+			var dist_from_edge = actual_size - abs(pos.x)
+			elevation = elevation * (elevation + dist_from_edge / 100)
+		elif actual_size - abs(pos.y) < edge_buffer:
+			var dist_from_edge = actual_size - abs(pos.y)
+			elevation = elevation * (elevation + dist_from_edge / 100)
+			
+	return elevation
 
 
 func _on_BackButton_pressed():
@@ -95,5 +106,11 @@ func _on_FrequencySlider_value_changed(value):
 func _on_ScaleSlider_value_changed(value):
 	elevation_noise.persistence = value
 	moisture_noise.persistence = value
+	if not is_building:
+		build_map(false)
+
+
+func _on_FalloffType_item_selected(index):
+	curr_falloff_type = index
 	if not is_building:
 		build_map(false)
